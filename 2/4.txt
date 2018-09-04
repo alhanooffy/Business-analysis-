@@ -1,0 +1,9 @@
+SELECT COUNT(Orders.CustomerID) as Numcustomer, round(sum( OrderDetails.Quantity*OrderDetails.UnitPrice)) as Totalrevenue ,strftime('%Y',Orders.shippeddate) as "Year"
+FROM Orders ,OrderDetails
+WHERE Orders.OrderId=OrderDetails.OrderID
+AND year is not null
+AND  Orders.CustomerID in (select Customers.CustomerID
+FROM Customers
+WHERE Customers.Region is not null  ) 
+GROUP BY year;
+

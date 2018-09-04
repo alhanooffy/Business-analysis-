@@ -1,0 +1,9 @@
+SELECT Customers.CompanyName ,(CASE WHEN Fax IS NULL THEN 'No Fax' ELSE Fax END) AS Fax ,
+ round(SUM(OrderDetails.unitprice*OrderDetails.quantity)) as Totalrevenue
+FROM customers, Orders,OrderDetails 
+WHERE customers.CustomerID=Orders.CustomerID
+and Orders.OrderId = OrderDetails.OrderID
+GROUP BY customers.companyname ORDER BY totalrevenue DESC
+LIMIT 10;
+
+

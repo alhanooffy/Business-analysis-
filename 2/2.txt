@@ -1,0 +1,7 @@
+SELECT  count(orders.OrderID) as Numorders, Orders.ShipCountry ,Shippers.CompanyName
+FROM Orders,Shippers,Customers
+where Orders.ShipVia=Shippers.ShipperID 
+and Orders.CustomerID=Customers.CustomerID
+group by Shippers.CompanyName;
+
+

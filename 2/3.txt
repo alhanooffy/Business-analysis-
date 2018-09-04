@@ -1,0 +1,8 @@
+SELECT O.OrderID, E.FirstName || ' ' || E.LastName as Name,C.CompanyName ,avg(O.freight)
+FROM Orders O ,Employees E ,Customers C 
+ON (E.EmployeeID = O.EmployeeID)
+	AND (C.CustomerID = O.CustomerID)
+WHERE O.ShippedDate > O.RequiredDate AND O.shipvia = '2' 
+group by c.companyname
+Having avg(O.freight)> 25
+ORDER BY o.freight;
