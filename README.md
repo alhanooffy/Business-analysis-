@@ -1,2 +1,2 @@
 # Business-analysis-
-projects pf udacity business analysis nanodegree 
+projects of udacity business analysis nanodegree 
